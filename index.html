@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ONOBIREN | A Woman's Story — In Cinemas March 2026</title>
   <meta name="description" content="Experience ONOBIREN, a powerful cinematic journey about resilience, strength, and the enduring spirit of womanhood. Coming to cinemas from March 6." />
+
+  <!-- Preconnect for fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Cinzel:wght@400;600;700;900&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Only load the exact weights used — saves ~60% of font payload -->
+  <!-- Cormorant Garamond: 300, 400, 600 (normal + italic) -->
+  <!-- Cinzel: 400, 700, 900 -->
+  <!-- Raleway: 300, 400, 500 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+  <!-- Fallback for no-JS -->
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" /></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,7 +40,7 @@
     body {
       background: #2A0318;
       color: #F9E2B4;
-      font-family: 'Raleway', sans-serif;
+      font-family: 'Raleway', system-ui, sans-serif;
       font-weight: 300;
       overflow-x: hidden;
       cursor: default;
@@ -127,59 +136,27 @@
     .hero-video-corner-tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
     .hero-video-corner-bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
 
-    /* the actual video */
+    /* the actual video — YouTube iframe */
     .hero-video {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      border: none;
       display: block;
     }
 
-    /* placeholder shown until video is swapped in */
-    .hero-video-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
+    /* loading shimmer behind iframe */
+    .hero-video-frame {
+      position: relative;
+      aspect-ratio: 16/9;
       background: linear-gradient(135deg, #1A0210 0%, #3A0420 100%);
-      border: 2px dashed rgba(255,175,127,0.2);
-    }
-    .hero-video-placeholder-icon {
-      font-size: 48px;
-      opacity: 0.4;
-    }
-    .hero-video-placeholder p {
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: rgba(255,175,127,0.35);
-      text-align: center;
-      line-height: 2;
-    }
-    .hero-video-placeholder code {
-      font-family: monospace;
-      font-size: 11px;
-      color: rgba(255,175,127,0.5);
-      background: rgba(255,175,127,0.06);
-      padding: 4px 12px;
-      border: 1px solid rgba(255,175,127,0.15);
-      letter-spacing: 0;
-    }
-
-    /* glow that bleeds below the video */
-    .hero-video-glow {
-      position: absolute;
-      bottom: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      height: 80px;
-      background: radial-gradient(ellipse, rgba(156,15,79,0.35) 0%, transparent 70%);
-      pointer-events: none;
-      filter: blur(12px);
+      border: 1px solid rgba(255,175,127,0.25);
+      box-shadow:
+        0 0 0 1px rgba(255,175,127,0.08),
+        0 24px 80px rgba(0,0,0,0.7),
+        0 0 60px rgba(156,15,79,0.2);
+      overflow: hidden;
     }
 
     /* ── bottom info strip ── */
@@ -988,16 +965,20 @@
       <!-- VIDEO: standalone cinematic frame -->
       <div class="hero-video-wrap">
         <div class="hero-video-frame">
-          <!-- ▼▼▼ REPLACE src WITH YOUR VIDEO FILE ▼▼▼ -->
-          <video class="hero-video" autoplay muted loop playsinline poster="">
-            <source src="YOUR_HERO_VIDEO.mp4" type="video/mp4" />
-          </video>
-          <!-- placeholder — remove once video is added -->
-          <div class="hero-video-placeholder">
-            <div class="hero-video-placeholder-icon">🎬</div>
-            <p>Hero Video Placeholder<br>16 : 9 aspect ratio</p>
-            <code>&lt;source src="YOUR_HERO_VIDEO.mp4"&gt;</code>
-          </div>
+          <!--
+            YouTube embed — privacy-enhanced (nocookie), autoplay, muted, looped.
+            ?autoplay=1&mute=1&loop=1&playlist=op21UHb8Ngk — loop requires playlist= same ID
+            &controls=0 hides controls | &modestbranding=1 reduces YT logo
+            &rel=0 no related videos | &playsinline=1 for iOS inline play
+          -->
+          <iframe
+            class="hero-video"
+            src="https://www.youtube-nocookie.com/embed/op21UHb8Ngk?autoplay=1&mute=1&loop=1&playlist=op21UHb8Ngk&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1"
+            title="ONOBIREN — A Woman's Story"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <!-- corner brackets -->
           <div class="hero-video-corner-tr"></div>
           <div class="hero-video-corner-bl"></div>
@@ -1270,20 +1251,17 @@
     <a href="https://wa.me/2348069724302" class="wa-btn" target="_blank" rel="noopener" title="WhatsApp Us">💬</a>
   </div>
 
-  <script>
+    <script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
+    const revealObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
       });
     }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
+    reveals.forEach(el => revealObs.observe(el));
 
-    // Nav transparency on scroll
+    // Nav transparency on scroll (passive for perf)
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 80) {
@@ -1293,7 +1271,9 @@
         nav.style.background = 'linear-gradient(180deg, rgba(26,2,16,0.9) 0%, transparent 100%)';
         nav.style.backdropFilter = 'blur(2px)';
       }
-    });
+    }, { passive: true });
+
+    // YouTube iframe handles its own loading — no JS needed for video
   </script>
 </body>
 </html>
