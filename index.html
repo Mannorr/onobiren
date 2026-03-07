@@ -458,7 +458,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      opacity: 0; /* ← Change to 1 once image is added */
+      opacity: 1;
       transition: opacity 0.5s;
     }
 
@@ -564,7 +564,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      opacity: 0; /* ← Change to 1 once image is added */
+      opacity: 1;
       transition: opacity 0.4s;
     }
     .quote-portrait-placeholder {
@@ -1051,8 +1051,8 @@
         <div class="story-visual reveal reveal-delay-2">
           <div class="story-visual-inner">
             <!-- MOVIE FLYER IMAGE: replace src and set opacity to 1 in CSS -->
-            <img class="flyer-img" src="YOUR_MOVIE_FLYER_HERE.jpg" alt="Onobiren Movie Poster" />
-            <div class="flyer-placeholder">
+            <img class="flyer-img" src="https://raw.githubusercontent.com/Mannorr/onobiren/main/1.png" alt="Onobiren Movie Poster" />
+            <div class="flyer-placeholder" style="display:none">
               <div class="flyer-placeholder-icon">🎬</div>
               <span>Movie Poster / Flyer<br>Replace flyer-img src &amp; set opacity: 1</span>
             </div>
@@ -1077,7 +1077,7 @@
           <div class="quote-header">
             <div class="quote-portrait">
               <!-- Replace src & set opacity:1 when image is ready -->
-              <img src="YOUR_PHOTO_TARA.jpg" alt="Mrs Tara Fela-Durotoye" />
+              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/2.png" alt="Mrs Tara Fela-Durotoye" />
               <div class="quote-portrait-placeholder">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
               </div>
@@ -1091,7 +1091,7 @@
         <div class="quote-card reveal reveal-delay-2">
           <div class="quote-header">
             <div class="quote-portrait">
-              <img src="YOUR_PHOTO_MORENIKE.jpg" alt="Dr Morenike Molehin" />
+              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/3.png" alt="Dr Morenike Molehin" />
               <div class="quote-portrait-placeholder">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
               </div>
@@ -1105,7 +1105,7 @@
         <div class="quote-card reveal reveal-delay-3">
           <div class="quote-header">
             <div class="quote-portrait">
-              <img src="YOUR_PHOTO_KEMI.jpg" alt="Kemi Onabanjo-Joseph" />
+              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/4.png" alt="Kemi Onabanjo-Joseph" />
               <div class="quote-portrait-placeholder">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
               </div>
@@ -1119,7 +1119,7 @@
         <div class="quote-card reveal reveal-delay-4">
           <div class="quote-header">
             <div class="quote-portrait">
-              <img src="YOUR_PHOTO_OLUSHOLA.jpg" alt="Olushola Olaleye" />
+              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/5.png" alt="Olushola Olaleye" />
               <div class="quote-portrait-placeholder">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
               </div>
@@ -1209,7 +1209,7 @@
           <div class="support-icon">🤝</div>
           <div class="support-title">Sponsorships</div>
           <p class="support-desc">Partner with us to bring this story to audiences everywhere. Reach us directly and become a champion for women's stories in African cinema.</p>
-          <a href="mailto:lajuirenfilms@gmail.com" class="btn-secondary" style="align-self:flex-start">Get In Touch</a>
+          <a href="/cdn-cgi/l/email-protection#97fbf6fde2fee5f2f9f1fefbfae4d7f0faf6fefbb9f4f8fa" class="btn-secondary" style="align-self:flex-start">Get In Touch</a>
         </div>
       </div>
     </section>
@@ -1231,7 +1231,7 @@
       <span style="color:rgba(154,128,96,0.3)">|</span>
       <a href="tel:+2348162103811">+234 816 210 3811</a>
       <span style="color:rgba(154,128,96,0.3)">|</span>
-      <a href="mailto:lajuirenfilms@gmail.com">lajuirenfilms@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#4c202d2639253e29222a2520213f0c2b212d2520622f2321"><span class="__cf_email__" data-cfemail="cba7aaa1bea2b9aea5ada2a7a6b88baca6aaa2a7e5a8a4a6">[email&#160;protected]</span></a>
     </div>
 
     <div class="ornament" style="max-width:300px; margin-top:8px">
@@ -1251,7 +1251,7 @@
     <a href="https://wa.me/2348069724302" class="wa-btn" target="_blank" rel="noopener" title="WhatsApp Us">💬</a>
   </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const revealObs = new IntersectionObserver((entries) => {
@@ -1267,13 +1267,3 @@
       if (window.scrollY > 80) {
         nav.style.background = 'rgba(26,2,16,0.95)';
         nav.style.backdropFilter = 'blur(12px)';
-      } else {
-        nav.style.background = 'linear-gradient(180deg, rgba(26,2,16,0.9) 0%, transparent 100%)';
-        nav.style.backdropFilter = 'blur(2px)';
-      }
-    }, { passive: true });
-
-    // YouTube iframe handles its own loading — no JS needed for video
-  </script>
-</body>
-</html>
