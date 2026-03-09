@@ -905,6 +905,23 @@
     }
 
 
+
+    /* ── SECTION ENTRY ANIMATIONS ───────────────────
+       Uses .fadein class — only applied via JS after page loads.
+       Content is ALWAYS visible even without JS.
+    ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .fadein {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fadein.in { opacity: 1; transform: none; }
+      .fadein-d1 { transition-delay: 0.08s; }
+      .fadein-d2 { transition-delay: 0.16s; }
+      .fadein-d3 { transition-delay: 0.24s; }
+      .fadein-d4 { transition-delay: 0.32s; }
+    }
   </style>
 </head>
 <body>
@@ -1232,24 +1249,36 @@
     <a href="https://wa.me/2348069724302" class="wa-btn" target="_blank" rel="noopener" title="WhatsApp Us">💬</a>
   </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Scroll — low threshold + bottom margin so elements trigger before fully in view
-    const reveals = document.querySelectorAll('.reveal');
-    const revealObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-    // Also immediately anything already in the viewport on load
-    reveals.forEach(el => revealObs.observe(el));
-    // Fallback: if after 2s anything is still hidden, force-show it
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-    }, 2000);
-
-    // Nav transparency on scroll (passive for perf)
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>  <script>
+    // Nav transparency on scroll
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 80) {
         nav.style.background = 'rgba(26,2,16,0.95)';
         nav.style.backdropFilter = 'blur(12px)';
+      } else {
+        nav.style.background = 'linear-gradient(180deg, rgba(26,2,16,0.9) 0%, transparent 100%)';
+        nav.style.backdropFilter = 'blur(2px)';
+      }
+    }, { passive: true });
+
+    // Progressive scroll animations
+    // JS adds .fadein AFTER page loads — content always visible without JS
+    window.addEventListener('load', () => {
+      if (!('IntersectionObserver' in window)) return;
+      const items = document.querySelectorAll('.quote-card, .story-text, .story-visual, .support-card, .redeem-card');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+      items.forEach((el, i) => {
+        el.classList.add('fadein');
+        const d = i % 4;
+        if (d) el.classList.add('fadein-d' + d);
+        obs.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
