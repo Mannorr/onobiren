@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ONOBIREN | A Woman's Story — In Cinemas March 2026</title>
+  <title>Showtimes — ONOBIREN</title>
   <meta name="description" content="Experience ONOBIREN, a powerful cinematic journey about resilience, strength, and the enduring spirit of womanhood. Coming to cinemas from March 6." />
 
   <!-- Preconnect for fonts -->
@@ -922,306 +922,312 @@
       .fadein-d3 { transition-delay: 0.24s; }
       .fadein-d4 { transition-delay: 0.32s; }
     }
+
+    /* ── SHOWTIMES PAGE ── */
+    .cinema-group-label {
+      font-size: 10px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: #FFAF7F;
+      border-bottom: 1px solid rgba(255,175,127,0.2);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .cinema-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2px;
+      margin-bottom: 48px;
+    }
+    .cinema-card {
+      background: #4A0828;
+      border: 1px solid rgba(255,175,127,0.12);
+      padding: 18px 22px;
+      transition: border-color 0.3s;
+    }
+    .cinema-card:hover { border-color: rgba(255,175,127,0.35); }
+    .cinema-card.coming { opacity: 0.45; }
+    .cinema-name {
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #F9E2B4;
+      margin-bottom: 6px;
+    }
+    .cinema-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: #C97090;
+      line-height: 1.6;
+    }
+    .soon-badge {
+      display: inline-block;
+      font-size: 8px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #FFAF7F;
+      border: 1px solid rgba(255,175,127,0.3);
+      padding: 1px 7px;
+      margin-left: 6px;
+    }
+    .schedule-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: rgba(249,226,180,0.35);
+      text-align: center;
+      margin-top: 32px;
+    }
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid rgba(255,175,127,0.12); }
+    .faq-q {
+      width: 100%; text-align: left; background: none; border: none;
+      padding: 18px 0; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #F9E2B4;
+    }
+    .faq-q:hover { color: #FFAF7F; }
+    .faq-arrow {
+      flex-shrink: 0; width: 14px; height: 14px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg); margin-top: -4px;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(-135deg); margin-top: 4px; }
+    .faq-a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px; font-style: italic;
+      color: rgba(249,226,180,0.7); line-height: 1.8;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-a { max-height: 160px; padding-bottom: 18px; }
+
   </style>
 </head>
 <body>
+<body>
+
 <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">ONOBIREN</a>
+    <a href="index.html" class="nav-logo">ONOBIREN</a>
     <ul class="nav-links">
-      <li><a href="#story">Story</a></li>
-      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="index.html#story">Story</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
       <li><a href="showtimes.html">Showtimes</a></li>
       <li><a href="mothersday.html">Mother's Day</a></li>
       <li><a href="champion.html">Be a Champion</a></li>
-      <li><a href="#support">Support</a></li>
+      <li><a href="index.html#support">Support</a></li>
     </ul>
   </nav>
 
-  
-<!-- HERO -->
-  <div class="hero" id="top">
-    <div class="hero-inner">
-
-      <!-- TOP: title above video -->
-      <div class="hero-top">
-        <span class="presenter-tag">Laju Iren Films presents</span>
-        <div class="ornament ornament-sm">
-          <div class="ornament-line"></div>
-          <div class="ornament-diamond"></div>
-          <div class="ornament-line"></div>
-        </div>
-        <h1 class="title-main">ONOBIREN</h1>
-        <p class="title-sub">A&nbsp;&nbsp;Woman's&nbsp;&nbsp;Story</p>
-        <div class="ornament">
-          <div class="ornament-line"></div>
-          <div class="ornament-diamond"></div>
-          <div class="ornament-diamond" style="margin-left:-8px"></div>
-          <div class="ornament-diamond" style="margin-left:-8px"></div>
-          <div class="ornament-line"></div>
-        </div>
-      </div>
-
-      <!-- VIDEO: standalone cinematic frame -->
-      <div class="hero-video-wrap">
-        <div class="hero-video-frame">
-          <!--
-            YouTube embed — privacy-enhanced (nocookie), autoplay, muted, looped.
-            ?autoplay=1&mute=1&loop=1&playlist=op21UHb8Ngk — loop requires playlist= same ID
-            &controls=0 hides controls | &modestbranding=1 reduces YT logo
-            &rel=0 no related videos | &playsinline=1 for iOS inline play
-          -->
-          <iframe
-            class="hero-video"
-            src="https://www.youtube-nocookie.com/embed/op21UHb8Ngk?autoplay=1&mute=1&loop=1&playlist=op21UHb8Ngk&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1"
-            title="ONOBIREN — A Woman's Story"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
-          <!-- corner brackets -->
-          <div class="hero-video-corner-tr"></div>
-          <div class="hero-video-corner-bl"></div>
-        </div>
-        <div class="hero-video-glow"></div>
-      </div>
-
-      <!-- BOTTOM: release info left · ornament centre · CTAs right -->
-      <div class="hero-bottom">
-        <div class="hero-bottom-left">
-          <span class="presenter-tag">In Cinemas from</span>
-          <div class="release-badge">March 6, 2026</div>
-          <p class="cinemas-note">Nigeria &amp; Silverbird Cinemas Accra, Ghana</p>
-        </div>
-
-        <div class="hero-bottom-center">
-          <div class="ornament" style="max-width:160px; flex-direction:column; gap:8px">
-            <div class="ornament-line" style="width:1px; height:40px; background: linear-gradient(180deg, transparent, #FFAF7F, transparent); flex: none;"></div>
-            <div class="ornament-diamond"></div>
-            <div class="ornament-line" style="width:1px; height:40px; background: linear-gradient(180deg, #FFAF7F, transparent); flex: none;"></div>
-          </div>
-        </div>
-
-        <div class="hero-bottom-right">
-          <p class="hero-synopsis">From Warri to Lagos — a journey of purpose, survival, and the magic that happens when women support women.</p>
-          <div class="cta-group">
-            <a href="#cinemas" class="btn-primary">View Showtimes</a>
-            <a href="#support" class="btn-secondary">Support the Film</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  
-<!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker">
-      <div class="ticker-item">Now Showing <span>✦</span></div>
-      <div class="ticker-item">ONOBIREN <span>✦</span></div>
-      <div class="ticker-item">A Woman's Story <span>✦</span></div>
-      <div class="ticker-item">In Cinemas March 6 <span>✦</span></div>
-      <div class="ticker-item">Nigeria <span>✦</span></div>
-      <div class="ticker-item">Ghana <span>✦</span></div>
-      <div class="ticker-item">Laju Iren Films <span>✦</span></div>
-      <div class="ticker-item">Now Showing <span>✦</span></div>
-      <div class="ticker-item">ONOBIREN <span>✦</span></div>
-      <div class="ticker-item">A Woman's Story <span>✦</span></div>
-      <div class="ticker-item">In Cinemas March 6 <span>✦</span></div>
-      <div class="ticker-item">Nigeria <span>✦</span></div>
-      <div class="ticker-item">Ghana <span>✦</span></div>
-      <div class="ticker-item">Laju Iren Films <span>✦</span></div>
-    </div>
-  </div>
-
-  
-<!-- STORY -->
-  <div class="full-bg" id="story">
-    <section>
-      <div class="story-section">
-        <div class="story-text">
-          <span class="section-label">The Story</span>
-          <h2 class="section-title">Follow Roli's Journey</h2>
-          <p>
-            To herald the women's month this March, Laju Iren Films presents <em>Onobiren: A Woman's Story.</em>
-            <br /><br />
-            Follow Roli's journey from Warri to Lagos — when what begins as a familiar narrative quickly transforms when she chooses a different path, one driven by purpose, survival, and self-discovery; powered by fishing roots and the magic that happens when women support women.
-          </p>
-        </div>
-
-        <div class="story-visual">
-          <div class="story-visual-inner">
-            <!-- MOVIE FLYER IMAGE: replace src and set opacity to 1 in CSS -->
-            <img class="flyer-img" src="https://raw.githubusercontent.com/Mannorr/onobiren/main/1.png" alt="Onobiren Movie Poster" />
-            <div class="flyer-placeholder" style="display:none">
-              <div class="flyer-placeholder-icon">🎬</div>
-              <span>Movie Poster / Flyer<br>Replace flyer-img src &amp; set opacity: 1</span>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- PAGE HERO -->
+  <div class="full-bg" style="padding-top:80px">
+    <section style="text-align:center; padding-bottom:0;">
+      <span class="section-label">Now Playing</span>
+      <h1 class="section-title" style="font-size:clamp(32px,7vw,72px); letter-spacing:0.12em; margin-bottom:12px;">Showtimes</h1>
+      <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(14px,2vw,18px); color:rgba(249,226,180,0.6);">Friday March 6th — and beyond across Nigeria & Ghana</p>
     </section>
   </div>
 
+  <!-- NOTICE -->
   <div class="divider"></div>
-
-  
-<!-- REVIEWS -->
-  <div class="full-bg-2" id="reviews">
-    <section>
-      <div style="text-align:center; margin-bottom: 48px;" class="">
-        <span class="section-label">What People Are Saying</span>
-        <h2 class="section-title" style="margin-bottom:0">Audience Reactions</h2>
-      </div>
-
-      <div class="quotes-grid">
-        <div class="quote-card">
-          <div class="quote-header">
-            <div class="quote-portrait">
-              <!-- Replace src & set opacity:1 when image is ready -->
-              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/2.png" alt="Mrs Tara Fela-Durotoye" />
-              <div class="quote-portrait-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <span class="quote-author">Mrs Tara Fela-Durotoye</span>
-          </div>
-          <p class="quote-text">
-            Fabulous, fabulous! A wonderful film that promotes intuitive enterprise amongst women, celebrates the men who support them, while beautifully portraying the Itsekiri culture and the riverine region. It brings back memories from my own childhood!
-          </p>
-        </div>
-        <div class="quote-card">
-          <div class="quote-header">
-            <div class="quote-portrait">
-              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/3.png" alt="Dr Morenike Molehin" />
-              <div class="quote-portrait-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <span class="quote-author">Dr Morenike Molehin</span>
-          </div>
-          <p class="quote-text">
-            Onobiren is such a beautiful film. The storyline is fantastic with incredible plot twists. The cinematography and overall quality of the production are out of this world. If a film could feel like a warm hug, this would be it!
-          </p>
-        </div>
-        <div class="quote-card">
-          <div class="quote-header">
-            <div class="quote-portrait">
-              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/4.png" alt="Kemi Onabanjo-Joseph" />
-              <div class="quote-portrait-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <span class="quote-author">Kemi Onabanjo-Joseph</span>
-          </div>
-          <p class="quote-text">
-            It is a beautiful film, and a truly unconventional story that would take you by surprise. I love that there are many lessons that can be gleaned from it — even if your situation is not exactly like that of the main character.
-          </p>
-        </div>
-        <div class="quote-card">
-          <div class="quote-header">
-            <div class="quote-portrait">
-              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/5.png" alt="Olushola Olaleye" />
-              <div class="quote-portrait-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <span class="quote-author">Olushola Olaleye</span>
-          </div>
-          <p class="quote-text">
-            Absolutely gripping. It carried you through every emotion: sadness, humor, ecstasy, and the sweet taste of victory. A definite must-watch! A gentle reminder that what you're looking for could already be within you.
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="divider"></div>
-
-  
-<!-- CINEMAS -->
-  <div class="full-bg" id="cinemas">
-    <section>
-      <div class="cinemas-section">
-        <div class="">
-          <span class="section-label">Now Playing</span>
-          <h2 class="section-title">Find Your Cinema</h2>
-        </div>
-
-        <p class="nigeria-ghana">Across cinemas in Nigeria and Silverbird Cinemas, Accra, Ghana from March 6th</p>
-
-        <div class="cinemas-list">
-          <span class="cinema-tag">EbonyLife Cinemas</span>
-          <span class="cinema-tag">FilmHouse Cinemas</span>
-          <span class="cinema-tag">Genesis Cinemas</span>
-          <span class="cinema-tag">Silverbird Cinemas</span>
-          <span class="cinema-tag">OOPL</span>
-          <span class="cinema-tag">Imperial</span>
-          <span class="cinema-tag">Kada Benin</span>
-          <span class="cinema-tag">Silverbird Accra, GH</span>
-        </div>
-
-        <div class="">
-          <a href="#" class="btn-primary">View All Showtimes</a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="divider"></div>
-
-  
-<!-- REDEEM INFO -->
   <div class="full-bg-2">
+    <div style="max-width:900px; margin:0 auto; padding:28px 40px; text-align:center;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(15px,2vw,18px); font-style:italic; color:rgba(249,226,180,0.8); line-height:1.7;">
+        Ticket pre-orders have now ended but you can purchase your tickets in person from March 6th across all cinemas in Nigeria and Silverbird Cinemas Accra, Ghana.
+      </p>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- SHOWTIMES -->
+  <div class="full-bg">
     <section>
-      <div style="text-align:center; margin-bottom: 0" class="">
-        <span class="section-label">Ticketing</span>
-        <h2 class="section-title">Redeem Your Tickets</h2>
+      <span class="section-label">Lagos — Premium</span>
+      <div class="cinema-grid">
+        <div class="cinema-card"><p class="cinema-name">Ebony Life, Victoria Island</p><p class="cinema-time">Daily: 1:30pm, 6:00pm, 8:30pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Silverbird Ikeja</p><p class="cinema-time">Daily: 12:40pm, 3:00pm, 7:15pm, 9:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Silverbird Galleria, Victoria Island</p><p class="cinema-time">VVIP: 1:10pm, Reg: 4:45pm · Sun: Reg only 4:45pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Surulere</p><p class="cinema-time">Daily: 2:40pm, 4:00pm, 5:00pm, 6:15pm, 8:30pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Lekki</p><p class="cinema-time">Daily: 2:15pm, 4:30pm, 9:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Ikota</p><p class="cinema-time">Daily: 2:30pm, 6:40pm, 8:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Landmark</p><p class="cinema-time">Daily: 4:40pm, 7:05pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Palms Lekki</p><p class="cinema-time">Daily: 2:30pm, 4:45pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse CircleMall</p><p class="cinema-time">Daily: 5:15pm, 7:30pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse TwinWater</p><p class="cinema-time">Daily: 2:20pm, 7:05pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Ozone, Yaba</p><p class="cinema-time">Daily: 1:05pm, 3:40pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Brand Cinema, Ogudu</p><p class="cinema-time">Daily: 5:25pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">G2G</p><p class="cinema-time">Fri: 4:00pm · Sat: 4:10pm · Sun: 6:30pm · Mon: 6:00pm · Tue: 12:00pm · Thu: 4:30pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Heritage, Abule Egba</p><p class="cinema-time">Fri: 5:20pm · Sat: 7:00pm · Sun: 5:20pm · Mon–Tue: 1:00pm · Wed–Thu: 3:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Azer Cinema</p><p class="cinema-time">Daily: 12:24pm, 9:28pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Capricon Cinema</p><p class="cinema-time">Fri: 3:48pm · Sun: 2:04pm · Mon: 11:00am</p></div>
+        <div class="cinema-card"><p class="cinema-name">Cine 21</p><p class="cinema-time">Daily: 1:30pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Citadel</p><p class="cinema-time">Daily: 7:40pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Dreampark</p><p class="cinema-time">Daily: 2:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Hybrid Height</p><p class="cinema-time">Daily: 3:35pm, 8:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Pepperonni Cinema</p><p class="cinema-time">Daily: 3:26pm, 6:18pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Voicenel Cinema</p><p class="cinema-time">Daily: 11:50am, 7:50pm</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Nile Cinema, Ifako <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Kap Cinema, Ikeja <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Magnificient, Ikorodu Rd <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Mega 1, Sangotedo <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Grand Cinema, Sangotedo <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Nova Lekki <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Genesis Lekki <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Nile Cinema, Ikota <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Filmworld, Kaf Mall, Ikotun <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Covenant Plus, Abule Egba <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Covenant Plus, Ile Epo <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Starlite Cinema <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Majestik Cinema <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Deepend <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Dumes <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
       </div>
 
+      <span class="section-label">Ogun, Oyo &amp; South West</span>
+      <div class="cinema-grid">
+        <div class="cinema-card"><p class="cinema-name">OOPL Mosan, Abeokuta</p><p class="cinema-time">Wed–Thu: 1:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">OOPL Obatan</p><p class="cinema-time">Fri: 12:00pm, 4:20pm · Sat: 4:50pm · Sun: 7:00pm · Mon: 5:20pm · Tue: 5:35pm · Thu: 3:45pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">OOPL Aje</p><p class="cinema-time">Sat: 2:20pm · Sun: 12:00pm · Tue: 1:00pm · Wed: 3:15pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Heritage, Mowe</p><p class="cinema-time">Fri &amp; Sun: 6:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Samonda, Ibadan</p><p class="cinema-time">Daily: 1:45pm, 6:15pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Dugbe, Ibadan</p><p class="cinema-time">Daily: 2:00pm, 4:45pm, 6:45pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Ojaja Cinema, Ile Ife</p><p class="cinema-time">Daily: 3:45pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Ilorin</p><p class="cinema-time">Daily: 2:30pm, 5:20pm, 7:35pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Akure</p><p class="cinema-time">Daily: 2:00pm, 6:40pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Fiesta</p><p class="cinema-time">Daily: 7:45pm</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Imperial Osogbo <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Viva Ibadan <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Viva Ilorin <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+      </div>
+
+      <span class="section-label">Abuja</span>
+      <div class="cinema-grid">
+        <div class="cinema-card"><p class="cinema-name">Silverbird Jabi, Abuja</p><p class="cinema-time">Daily: 12:20pm, 4:30pm, 7:10pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Jays Cinema, Abuja</p><p class="cinema-time">Daily: 5:00pm, 8:00pm</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Genesis Abuja, Ceddi (VIP) <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Genesis Ceddi, Abuja (Premium) <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Nova Abuja <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+      </div>
+
+      <span class="section-label">Port Harcourt</span>
+      <div class="cinema-grid">
+        <div class="cinema-card"><p class="cinema-name">Box Office Garden City, PH</p><p class="cinema-time">Daily: 12:00pm, 2:10pm, 6:35pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Box Office Pleasure Park, PH</p><p class="cinema-time">Fri: 10:20am, 12:25pm · Sat–Thu: 10:20am, 12:20pm</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Genesis Portharcourt <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Nile Portharcourt <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+      </div>
+
+      <span class="section-label">Benin &amp; South South</span>
+      <div class="cinema-grid">
+        <div class="cinema-card"><p class="cinema-name">Kada Benin</p><p class="cinema-time">Daily: 5:30pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">FilmHouse Benin</p><p class="cinema-time">Daily: 2:00pm, 4:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Wosam Cinema</p><p class="cinema-time">Daily: 12:20pm, 6:48pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Denco</p><p class="cinema-time">Daily: 2:10pm</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Genesis Benin <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Genesis Warri <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+      </div>
+
+      <span class="section-label">South East</span>
+      <div class="cinema-grid">
+        <div class="cinema-card"><p class="cinema-name">Agary Cinema, Nnewi</p><p class="cinema-time">Daily: 5:25pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Mila Cinema Awka</p><p class="cinema-time">Daily: 6:00pm</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Genesis Asaba <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Genesis Awka <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Genesis Owerri <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Nile Enugu <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Nile Vintano <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+      </div>
+
+      <span class="section-label">North</span>
+      <div class="cinema-grid">
+        <div class="cinema-card"><p class="cinema-name">Silverbird Kaduna</p><p class="cinema-time">Daily: 12:50pm, 8:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Silverbird SEC</p><p class="cinema-time">Daily: 2:55pm, 6:30pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Silverbird Westhill Mall</p><p class="cinema-time">Daily: 2:00pm, 4:00pm</p></div>
+        <div class="cinema-card"><p class="cinema-name">Mees Palace, Jos</p><p class="cinema-time">Daily: 12:00pm</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Platinum, Kano <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+        <div class="cinema-card coming"><p class="cinema-name">Viva Enugu <span class="soon-badge">Soon</span></p><p class="cinema-time">—</p></div>
+      </div>
+
+      <span class="section-label">Ghana</span>
+      <div class="cinema-grid">
+        <div class="cinema-card" style="border-color:rgba(255,175,127,0.3);">
+          <p class="cinema-name" style="color:#FFAF7F;">Silverbird Accra, Ghana</p>
+          <p class="cinema-time">Daily: 2:30pm, 4:40pm, 6:00pm</p>
+        </div>
+      </div>
+
+      <p class="schedule-note">Schedule reflects information received from cinemas as of March 2026. Cinemas reserve the right to change their schedule without notice.</p>
+    </section>
+  </div>
+  <div class="divider"></div>
+
+  <!-- REDEEM INFO -->
+  <div class="full-bg-2" id="redeem">
+    <section>
+      <span class="section-label">Ticketing</span>
+      <h2 class="section-title">Redeem Your Tickets</h2>
       <div class="redeem-cards">
         <div class="redeem-card">
-          <div class="redeem-card-title">EbonyLife &amp; FilmHouse</div>
-          <p>A voucher code will be sent to your email. Check for a mail from <strong>lajuirenfilms</strong> — also check your spam folder. Didn't receive it? WhatsApp us at +234 806 972 4302 or +234 816 210 3811.</p>
+          <div class="redeem-card-title">Ebony Life &amp; FilmHouse Cinemas</div>
+          <p>A <strong style="color:#FFAF7F;">voucher code</strong> has been sent to your email.</p>
+          <p style="margin-top:10px;">Check for a mail from <strong style="color:#FFAF7F;">lajuirenfilms</strong>. Please also check your spam folder.</p>
+          <p style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,175,127,0.1); font-size:13px; color:#C97090; letter-spacing:0.1em;">Didn't get it? WhatsApp us:</p>
+          <p style="margin-top:6px;"><a href="https://wa.me/2348069724302" style="color:#FFAF7F; text-decoration:none; font-size:13px;">💬 +234 806 972 4302</a></p>
+          <p style="margin-top:4px;"><a href="https://wa.me/2348162103811" style="color:#FFAF7F; text-decoration:none; font-size:13px;">💬 +234 816 210 3811</a></p>
         </div>
         <div class="redeem-card">
           <div class="redeem-card-title">Genesis, Silverbird, OOPL, Imperial &amp; Kada Benin</div>
-          <p>Go to the cinema with your ID. Tell them your <strong>name</strong> and that you pre-ordered tickets for Onobiren — they'll check the list and grant access. If someone else bought the ticket for you, give them that person's name.</p>
+          <p>Go to the cinema with your ID. Tell them your <strong style="color:#FFAF7F;">name</strong> and that you pre-ordered tickets for Onobiren.</p>
+          <p style="margin-top:10px;">They'll check the list for your name and grant access.</p>
+          <p style="margin-top:10px;">If someone else bought the ticket for you, please tell them <strong style="color:#FFAF7F;">that person's name</strong>.</p>
         </div>
       </div>
     </section>
   </div>
-
   <div class="divider"></div>
 
-  
-<!-- SUPPORT -->
-  <div class="full-bg" id="support">
+  <!-- FAQ -->
+  <div class="full-bg">
     <section>
-      <div style="text-align:center; margin-bottom:48px" class="">
-        <span class="section-label">Partner With Us</span>
-        <h2 class="section-title" style="margin-bottom:0">Support the Film</h2>
-      </div>
-
-      <div class="support-section">
-        <div class="support-card">
-          <div class="support-icon">🎁</div>
-          <div class="support-title">Give a Gift</div>
-          <p class="support-desc">Support the making of Onobiren with a donation or gift. Every contribution helps bring this story to more screens and hearts across the continent.</p>
-          <a href="https://selar.com/showlove/onobiren" class="btn-secondary" style="align-self:flex-start">Gift Now</a>
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">Frequently Asked</h2>
+      <div style="max-width:700px;">
+        <div class="faq-item">
+          <button class="faq-q">What time is the movie starting?<span class="faq-arrow"></span></button>
+          <div class="faq-a">It depends on the cinema showtimes. Check the list above for your preferred cinema.</div>
         </div>
-        <div class="support-card">
-          <div class="support-icon">🤝</div>
-          <div class="support-title">Sponsorships</div>
-          <p class="support-desc">Partner with us to bring this story to audiences everywhere. Reach us directly and become a champion for women's stories in African cinema.</p>
-          <a href="mailto:lajuirenfilms@gmail.com" class="btn-secondary" style="align-self:flex-start">Get In Touch</a>
+        <div class="faq-item">
+          <button class="faq-q">What time should I arrive at the cinema?<span class="faq-arrow"></span></button>
+          <div class="faq-a">It is best to arrive before the movie showtime to comfortably find your seat.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Pre-orders have closed. How do I get tickets now?<span class="faq-arrow"></span></button>
+          <div class="faq-a">Simply walk up to the counter at the cinema of your choice to buy tickets to watch.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is it showing in all cinemas?<span class="faq-arrow"></span></button>
+          <div class="faq-a">Yes, it starts showing in all cinemas across Nigeria and Ghana from March 6th.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">I pre-ordered my ticket. When can I watch?<span class="faq-arrow"></span></button>
+          <div class="faq-a">Preordered tickets are valid for a single use within the first two weeks of cinema release (March 6th – 20th).</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I watch any day of the week?<span class="faq-arrow"></span></button>
+          <div class="faq-a">Yes, you can watch any day of the week depending on the showtimes of your preferred cinema.</div>
         </div>
       </div>
     </section>
   </div>
+  <div class="divider"></div>
 
-  
 <!-- FOOTER -->
   <footer>
     <div class="ornament" style="max-width:400px">
@@ -1260,7 +1266,6 @@
   </div>
 
         <script>
-    // Nav transparency on scroll
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 80) {
@@ -1271,6 +1276,16 @@
         nav.style.backdropFilter = 'blur(2px)';
       }
     }, { passive: true });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
   </script>
 </body>
 </html>

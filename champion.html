@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ONOBIREN | A Woman's Story — In Cinemas March 2026</title>
+  <title>Be a Champion — ONOBIREN</title>
   <meta name="description" content="Experience ONOBIREN, a powerful cinematic journey about resilience, strength, and the enduring spirit of womanhood. Coming to cinemas from March 6." />
 
   <!-- Preconnect for fonts -->
@@ -922,306 +922,160 @@
       .fadein-d3 { transition-delay: 0.24s; }
       .fadein-d4 { transition-delay: 0.32s; }
     }
+
+    .pkg-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
+    @media(max-width:640px){ .pkg-grid{grid-template-columns:1fr;} }
+    .pkg-card {
+      background:#4A0828; border:1px solid rgba(255,175,127,0.15);
+      padding:clamp(24px,3vw,40px); display:flex; flex-direction:column; gap:14px;
+      transition:border-color 0.3s, background 0.3s;
+    }
+    .pkg-card:hover{ border-color:rgba(255,175,127,0.4); background:#5C0F32; }
+    .pkg-card.highlight{ border-color:rgba(255,175,127,0.4); background:#5C0F32; grid-column:span 2; }
+    @media(max-width:640px){ .pkg-card.highlight{grid-column:span 1;} }
+    .pkg-name {
+      font-family:'Cinzel',serif; font-size:clamp(16px,2.2vw,22px);
+      letter-spacing:0.1em; color:#F9E2B4;
+    }
+    .pkg-tagline {
+      font-family:'Cormorant Garamond',serif; font-style:italic;
+      font-size:clamp(14px,1.8vw,17px); color:rgba(249,226,180,0.65);
+    }
+    .pkg-items { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .pkg-items li {
+      font-family:'Cormorant Garamond',serif; font-size:clamp(14px,1.6vw,16px);
+      color:rgba(249,226,180,0.8); display:flex; gap:10px; align-items:baseline;
+    }
+    .pkg-items li::before{ content:'✦'; color:#FFAF7F; font-size:9px; flex-shrink:0; }
+    .pkg-price {
+      font-family:'Cinzel',serif; font-size:clamp(20px,3vw,30px);
+      color:#FFAF7F; letter-spacing:0.08em;
+    }
+    .pkg-note {
+      font-family:'Cormorant Garamond',serif; font-style:italic;
+      font-size:13px; color:rgba(249,226,180,0.4); text-align:center; margin-top:32px; line-height:1.8;
+    }
+    .pkg-note a{ color:#FFAF7F; }
+
+    .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:40px; }
+    @media(max-width:640px){ .why-grid{grid-template-columns:1fr;} }
+    .why-card{ background:#4A0828; border:1px solid rgba(255,175,127,0.12); padding:clamp(20px,3vw,36px); }
+    .why-card p{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(14px,1.8vw,17px); color:rgba(249,226,180,0.75); line-height:1.8; }
+    .sw-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2px; }
+    @media(max-width:600px){ .sw-grid{grid-template-columns:1fr;} }
+    .sw-card{ background:#4A0828; border:1px solid rgba(255,175,127,0.15); padding:clamp(28px,3vw,44px); display:flex; flex-direction:column; gap:14px; }
+    .sw-card p{ font-family:'Cormorant Garamond',serif; font-size:clamp(14px,1.8vw,17px); color:rgba(249,226,180,0.7); line-height:1.7; flex:1; }
+
   </style>
 </head>
 <body>
+<body>
+
 <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">ONOBIREN</a>
+    <a href="index.html" class="nav-logo">ONOBIREN</a>
     <ul class="nav-links">
-      <li><a href="#story">Story</a></li>
-      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="index.html#story">Story</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
       <li><a href="showtimes.html">Showtimes</a></li>
       <li><a href="mothersday.html">Mother's Day</a></li>
       <li><a href="champion.html">Be a Champion</a></li>
-      <li><a href="#support">Support</a></li>
+      <li><a href="index.html#support">Support</a></li>
     </ul>
   </nav>
-
-  
-<!-- HERO -->
-  <div class="hero" id="top">
-    <div class="hero-inner">
-
-      <!-- TOP: title above video -->
-      <div class="hero-top">
-        <span class="presenter-tag">Laju Iren Films presents</span>
-        <div class="ornament ornament-sm">
-          <div class="ornament-line"></div>
-          <div class="ornament-diamond"></div>
-          <div class="ornament-line"></div>
-        </div>
-        <h1 class="title-main">ONOBIREN</h1>
-        <p class="title-sub">A&nbsp;&nbsp;Woman's&nbsp;&nbsp;Story</p>
-        <div class="ornament">
-          <div class="ornament-line"></div>
-          <div class="ornament-diamond"></div>
-          <div class="ornament-diamond" style="margin-left:-8px"></div>
-          <div class="ornament-diamond" style="margin-left:-8px"></div>
-          <div class="ornament-line"></div>
-        </div>
-      </div>
-
-      <!-- VIDEO: standalone cinematic frame -->
-      <div class="hero-video-wrap">
-        <div class="hero-video-frame">
-          <!--
-            YouTube embed — privacy-enhanced (nocookie), autoplay, muted, looped.
-            ?autoplay=1&mute=1&loop=1&playlist=op21UHb8Ngk — loop requires playlist= same ID
-            &controls=0 hides controls | &modestbranding=1 reduces YT logo
-            &rel=0 no related videos | &playsinline=1 for iOS inline play
-          -->
-          <iframe
-            class="hero-video"
-            src="https://www.youtube-nocookie.com/embed/op21UHb8Ngk?autoplay=1&mute=1&loop=1&playlist=op21UHb8Ngk&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1"
-            title="ONOBIREN — A Woman's Story"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
-          <!-- corner brackets -->
-          <div class="hero-video-corner-tr"></div>
-          <div class="hero-video-corner-bl"></div>
-        </div>
-        <div class="hero-video-glow"></div>
-      </div>
-
-      <!-- BOTTOM: release info left · ornament centre · CTAs right -->
-      <div class="hero-bottom">
-        <div class="hero-bottom-left">
-          <span class="presenter-tag">In Cinemas from</span>
-          <div class="release-badge">March 6, 2026</div>
-          <p class="cinemas-note">Nigeria &amp; Silverbird Cinemas Accra, Ghana</p>
-        </div>
-
-        <div class="hero-bottom-center">
-          <div class="ornament" style="max-width:160px; flex-direction:column; gap:8px">
-            <div class="ornament-line" style="width:1px; height:40px; background: linear-gradient(180deg, transparent, #FFAF7F, transparent); flex: none;"></div>
-            <div class="ornament-diamond"></div>
-            <div class="ornament-line" style="width:1px; height:40px; background: linear-gradient(180deg, #FFAF7F, transparent); flex: none;"></div>
-          </div>
-        </div>
-
-        <div class="hero-bottom-right">
-          <p class="hero-synopsis">From Warri to Lagos — a journey of purpose, survival, and the magic that happens when women support women.</p>
-          <div class="cta-group">
-            <a href="#cinemas" class="btn-primary">View Showtimes</a>
-            <a href="#support" class="btn-secondary">Support the Film</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
+  <!-- PAGE HERO -->
+  <div style="background:linear-gradient(180deg,#1A0210 0%,#2A0318 100%); padding-top:80px;">
+    <section style="padding-bottom:0;">
+      <span class="section-label">Make an Impact</span>
+      <h1 class="section-title" style="font-size:clamp(28px,6vw,64px);">Become a Champion<br>for Women's Stories</h1>
+      <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(15px,2vw,20px); color:rgba(249,226,180,0.65); max-width:540px; line-height:1.8; margin-top:-20px;">Get tickets for more women and girls to be inspired by A Woman's Story.</p>
+    </section>
   </div>
+  <div class="divider"></div>
 
-  
-<!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker">
-      <div class="ticker-item">Now Showing <span>✦</span></div>
-      <div class="ticker-item">ONOBIREN <span>✦</span></div>
-      <div class="ticker-item">A Woman's Story <span>✦</span></div>
-      <div class="ticker-item">In Cinemas March 6 <span>✦</span></div>
-      <div class="ticker-item">Nigeria <span>✦</span></div>
-      <div class="ticker-item">Ghana <span>✦</span></div>
-      <div class="ticker-item">Laju Iren Films <span>✦</span></div>
-      <div class="ticker-item">Now Showing <span>✦</span></div>
-      <div class="ticker-item">ONOBIREN <span>✦</span></div>
-      <div class="ticker-item">A Woman's Story <span>✦</span></div>
-      <div class="ticker-item">In Cinemas March 6 <span>✦</span></div>
-      <div class="ticker-item">Nigeria <span>✦</span></div>
-      <div class="ticker-item">Ghana <span>✦</span></div>
-      <div class="ticker-item">Laju Iren Films <span>✦</span></div>
-    </div>
-  </div>
-
-  
-<!-- STORY -->
-  <div class="full-bg" id="story">
+  <!-- WHY -->
+  <div class="full-bg">
     <section>
-      <div class="story-section">
-        <div class="story-text">
-          <span class="section-label">The Story</span>
-          <h2 class="section-title">Follow Roli's Journey</h2>
-          <p>
-            To herald the women's month this March, Laju Iren Films presents <em>Onobiren: A Woman's Story.</em>
-            <br /><br />
-            Follow Roli's journey from Warri to Lagos — when what begins as a familiar narrative quickly transforms when she chooses a different path, one driven by purpose, survival, and self-discovery; powered by fishing roots and the magic that happens when women support women.
-          </p>
-        </div>
-
-        <div class="story-visual">
-          <div class="story-visual-inner">
-            <!-- MOVIE FLYER IMAGE: replace src and set opacity to 1 in CSS -->
-            <img class="flyer-img" src="https://raw.githubusercontent.com/Mannorr/onobiren/main/1.png" alt="Onobiren Movie Poster" />
-            <div class="flyer-placeholder" style="display:none">
-              <div class="flyer-placeholder-icon">🎬</div>
-              <span>Movie Poster / Flyer<br>Replace flyer-img src &amp; set opacity: 1</span>
-            </div>
-          </div>
-        </div>
+      <span class="section-label">Why Champion</span>
+      <h2 class="section-title">Why Be a Champion?</h2>
+      <div class="why-grid">
+        <div class="why-card"><span style="font-size:26px; display:block; margin-bottom:12px;">🎟️</span><p>Get tickets for women and girls you know personally — gift a cinematic experience they'll never forget.</p></div>
+        <div class="why-card"><span style="font-size:26px; display:block; margin-bottom:12px;">🌍</span><p>Expose our teeming community of women to the film and amplify its reach across Nigeria and Ghana.</p></div>
+        <div class="why-card"><span style="font-size:26px; display:block; margin-bottom:12px;">✨</span><p>Support women's stories in African cinema — every ticket is a vote for more films like Onobiren.</p></div>
       </div>
     </section>
   </div>
-
   <div class="divider"></div>
 
-  
-<!-- REVIEWS -->
-  <div class="full-bg-2" id="reviews">
-    <section>
-      <div style="text-align:center; margin-bottom: 48px;" class="">
-        <span class="section-label">What People Are Saying</span>
-        <h2 class="section-title" style="margin-bottom:0">Audience Reactions</h2>
-      </div>
-
-      <div class="quotes-grid">
-        <div class="quote-card">
-          <div class="quote-header">
-            <div class="quote-portrait">
-              <!-- Replace src & set opacity:1 when image is ready -->
-              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/2.png" alt="Mrs Tara Fela-Durotoye" />
-              <div class="quote-portrait-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <span class="quote-author">Mrs Tara Fela-Durotoye</span>
-          </div>
-          <p class="quote-text">
-            Fabulous, fabulous! A wonderful film that promotes intuitive enterprise amongst women, celebrates the men who support them, while beautifully portraying the Itsekiri culture and the riverine region. It brings back memories from my own childhood!
-          </p>
-        </div>
-        <div class="quote-card">
-          <div class="quote-header">
-            <div class="quote-portrait">
-              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/3.png" alt="Dr Morenike Molehin" />
-              <div class="quote-portrait-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <span class="quote-author">Dr Morenike Molehin</span>
-          </div>
-          <p class="quote-text">
-            Onobiren is such a beautiful film. The storyline is fantastic with incredible plot twists. The cinematography and overall quality of the production are out of this world. If a film could feel like a warm hug, this would be it!
-          </p>
-        </div>
-        <div class="quote-card">
-          <div class="quote-header">
-            <div class="quote-portrait">
-              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/4.png" alt="Kemi Onabanjo-Joseph" />
-              <div class="quote-portrait-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <span class="quote-author">Kemi Onabanjo-Joseph</span>
-          </div>
-          <p class="quote-text">
-            It is a beautiful film, and a truly unconventional story that would take you by surprise. I love that there are many lessons that can be gleaned from it — even if your situation is not exactly like that of the main character.
-          </p>
-        </div>
-        <div class="quote-card">
-          <div class="quote-header">
-            <div class="quote-portrait">
-              <img src="https://raw.githubusercontent.com/Mannorr/onobiren/main/5.png" alt="Olushola Olaleye" />
-              <div class="quote-portrait-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              </div>
-            </div>
-            <span class="quote-author">Olushola Olaleye</span>
-          </div>
-          <p class="quote-text">
-            Absolutely gripping. It carried you through every emotion: sadness, humor, ecstasy, and the sweet taste of victory. A definite must-watch! A gentle reminder that what you're looking for could already be within you.
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="divider"></div>
-
-  
-<!-- CINEMAS -->
-  <div class="full-bg" id="cinemas">
-    <section>
-      <div class="cinemas-section">
-        <div class="">
-          <span class="section-label">Now Playing</span>
-          <h2 class="section-title">Find Your Cinema</h2>
-        </div>
-
-        <p class="nigeria-ghana">Across cinemas in Nigeria and Silverbird Cinemas, Accra, Ghana from March 6th</p>
-
-        <div class="cinemas-list">
-          <span class="cinema-tag">EbonyLife Cinemas</span>
-          <span class="cinema-tag">FilmHouse Cinemas</span>
-          <span class="cinema-tag">Genesis Cinemas</span>
-          <span class="cinema-tag">Silverbird Cinemas</span>
-          <span class="cinema-tag">OOPL</span>
-          <span class="cinema-tag">Imperial</span>
-          <span class="cinema-tag">Kada Benin</span>
-          <span class="cinema-tag">Silverbird Accra, GH</span>
-        </div>
-
-        <div class="">
-          <a href="#" class="btn-primary">View All Showtimes</a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="divider"></div>
-
-  
-<!-- REDEEM INFO -->
+  <!-- PACKAGES -->
   <div class="full-bg-2">
     <section>
-      <div style="text-align:center; margin-bottom: 0" class="">
-        <span class="section-label">Ticketing</span>
-        <h2 class="section-title">Redeem Your Tickets</h2>
-      </div>
-
-      <div class="redeem-cards">
-        <div class="redeem-card">
-          <div class="redeem-card-title">EbonyLife &amp; FilmHouse</div>
-          <p>A voucher code will be sent to your email. Check for a mail from <strong>lajuirenfilms</strong> — also check your spam folder. Didn't receive it? WhatsApp us at +234 806 972 4302 or +234 816 210 3811.</p>
+      <span class="section-label">Choose Your Package</span>
+      <h2 class="section-title">Champion Bundles</h2>
+      <div class="pkg-grid">
+        <div class="pkg-card">
+          <div class="pkg-name">Escape</div>
+          <div class="pkg-tagline">Two movie tickets + Day access to Ziba Beach for two</div>
+          <ul class="pkg-items"><li>2 movie tickets to A Woman's Story</li>
+<li>Day access to Ziba Beach for 2</li></ul>
+          <div class="pkg-price">₦50,000</div>
+          <a href="https://selar.com/supportwomenidontknow" target="_blank" rel="noopener" class="btn-primary" style="align-self:flex-start;">Get This Package</a>
         </div>
-        <div class="redeem-card">
-          <div class="redeem-card-title">Genesis, Silverbird, OOPL, Imperial &amp; Kada Benin</div>
-          <p>Go to the cinema with your ID. Tell them your <strong>name</strong> and that you pre-ordered tickets for Onobiren — they'll check the list and grant access. If someone else bought the ticket for you, give them that person's name.</p>
+        <div class="pkg-card">
+          <div class="pkg-name">Starter</div>
+          <div class="pkg-tagline">Two movie tickets + Two week Shredder Gang subscription</div>
+          <ul class="pkg-items"><li>2 movie tickets to A Woman's Story</li>
+<li>2-week Shredder Gang subscription</li></ul>
+          <div class="pkg-price">₦60,000</div>
+          <a href="https://selar.com/supportwomenidontknow" target="_blank" rel="noopener" class="btn-primary" style="align-self:flex-start;">Get This Package</a>
+        </div>
+        <div class="pkg-card">
+          <div class="pkg-name">Glow</div>
+          <div class="pkg-tagline">Two movie tickets + ₦50,000 voucher from Karen Ubani</div>
+          <ul class="pkg-items"><li>2 movie tickets to A Woman's Story</li>
+<li>₦50,000 voucher from Karen Ubani</li></ul>
+          <div class="pkg-price">₦75,000</div>
+          <a href="https://selar.com/supportwomenidontknow" target="_blank" rel="noopener" class="btn-primary" style="align-self:flex-start;">Get This Package</a>
+        </div>
+        <div class="pkg-card highlight">
+          <div class="pkg-name">Ultimate</div>
+          <div class="pkg-tagline">Four movie tickets + All perks combined</div>
+          <ul class="pkg-items"><li>4 movie tickets to A Woman's Story</li>
+<li>Day access to Ziba Beach for 4</li>
+<li>2-week Shredder Gang subscription</li>
+<li>₦50,000 Karen Ubani voucher</li></ul>
+          <div class="pkg-price">₦200,000</div>
+          <a href="https://selar.com/supportwomenidontknow" target="_blank" rel="noopener" class="btn-primary" style="align-self:flex-start;">Get This Package</a>
         </div>
       </div>
+      <p class="pkg-note">* Kindly email <a href="mailto:lajuirenfilms@gmail.com">lajuirenfilms@gmail.com</a> with proof of payment and recipient details.<br>* Cinema choices would be based on availability.</p>
     </section>
   </div>
-
   <div class="divider"></div>
 
-  
-<!-- SUPPORT -->
-  <div class="full-bg" id="support">
+  <!-- SUPPORT WOMEN -->
+  <div class="full-bg">
     <section>
-      <div style="text-align:center; margin-bottom:48px" class="">
-        <span class="section-label">Partner With Us</span>
-        <h2 class="section-title" style="margin-bottom:0">Support the Film</h2>
-      </div>
-
-      <div class="support-section">
-        <div class="support-card">
-          <div class="support-icon">🎁</div>
-          <div class="support-title">Give a Gift</div>
-          <p class="support-desc">Support the making of Onobiren with a donation or gift. Every contribution helps bring this story to more screens and hearts across the continent.</p>
-          <a href="https://selar.com/showlove/onobiren" class="btn-secondary" style="align-self:flex-start">Gift Now</a>
+      <span class="section-label">Go Further</span>
+      <h2 class="section-title">Support More Women</h2>
+      <div class="sw-grid">
+        <div class="sw-card">
+          <div class="support-icon">👭</div>
+          <div class="support-title">Women You Know</div>
+          <p>Get tickets specifically for the women and girls in your life — friends, family, colleagues, mentors.</p>
+          <a href="https://selar.com/supportwomeniknow" target="_blank" rel="noopener" class="btn-primary" style="align-self:flex-start;">Support Women I Know</a>
         </div>
-        <div class="support-card">
-          <div class="support-icon">🤝</div>
-          <div class="support-title">Sponsorships</div>
-          <p class="support-desc">Partner with us to bring this story to audiences everywhere. Reach us directly and become a champion for women's stories in African cinema.</p>
-          <a href="mailto:lajuirenfilms@gmail.com" class="btn-secondary" style="align-self:flex-start">Get In Touch</a>
+        <div class="sw-card">
+          <div class="support-icon">🌸</div>
+          <div class="support-title">Women You Don't Know</div>
+          <p>Sponsor tickets for women who might not otherwise get to watch. Every contribution matters.</p>
+          <a href="https://selar.com/supportwomenidontknow" target="_blank" rel="noopener" class="btn-secondary" style="align-self:flex-start;">Support Women I Don't Know</a>
         </div>
       </div>
     </section>
   </div>
+  <div class="divider"></div>
 
-  
 <!-- FOOTER -->
   <footer>
     <div class="ornament" style="max-width:400px">
@@ -1253,14 +1107,13 @@
   </footer>
 
   
-<!-- WHATSAPP FLOAT -->
+  <!-- WHATSAPP FLOAT -->
   <div class="whatsapp-float">
     <div class="wa-label">WhatsApp Us</div>
     <a href="https://wa.me/2348069724302" class="wa-btn" target="_blank" rel="noopener" title="WhatsApp Us">💬</a>
   </div>
 
-        <script>
-    // Nav transparency on scroll
+  <script>
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 80) {
